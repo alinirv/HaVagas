@@ -58,8 +58,22 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, mensagem.toString(), Toast.LENGTH_LONG).show()
         }
 
-
-
+        amb.btnLimpar.setOnClickListener{
+            amb.nomeCompletoEt.text.clear()
+            amb.emailEt.text.clear()
+            amb.telefoneET.text.clear()
+            amb.generoRg.clearCheck()
+            amb.formacaoSP.setSelection(0)
+            amb.anoConclusaoEt.visibility = View.GONE
+            amb.anoConclusaoEt.text.clear()
+            amb.instituicaoEt.visibility = View.GONE
+            amb.instituicaoEt.text.clear()
+            amb.tituloMonografiaEt.visibility = View.GONE
+            amb.tituloMonografiaEt.text.clear()
+            amb.orientadorEt.visibility = View.GONE
+            amb.orientadorEt.text.clear()
+            amb.vagasInteresseEt.text.clear()
+        }
     }
 
     private fun configurarCamposAdicionais(position: Int) {
