@@ -3,6 +3,7 @@ package br.edu.ifsp.scl.ads.pdm.havagas
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.ads.pdm.havagas.databinding.ActivityMainBinding
 
@@ -29,6 +30,35 @@ class MainActivity : AppCompatActivity() {
 
             override fun onNothingSelected(parent: AdapterView<*>?) { }
         }
+
+        amb.btnSalvar.setOnClickListener {
+            val nomeCompleto = amb.nomeCompletoEt.text.toString()
+            val email = amb.emailEt.text.toString()
+            val telefone = amb.telefoneET.text.toString()
+            val sexo = if (amb.masculinoRb.isChecked) "Masculino" else "Feminino"
+            val formacao = amb.formacaoSP.selectedItem.toString()
+            val anoConclusao = amb.anoConclusaoEt.text.toString()
+            val instituicao = amb.instituicaoEt.text.toString()
+            val tituloMonografia = amb.tituloMonografiaEt.text.toString()
+            val orientador = amb.orientadorEt.text.toString()
+            val vagasInteresse = amb.vagasInteresseEt.text.toString()
+
+            val mensagem = StringBuilder()
+            mensagem.append("Nome: $nomeCompleto\n")
+            mensagem.append("E-mail: $email\n")
+            mensagem.append("Telefone: $telefone\n")
+            mensagem.append("Sexo: $sexo\n")
+            mensagem.append("Formação: $formacao\n")
+            if (anoConclusao.isNotEmpty()) mensagem.append("Ano de Conclusão: $anoConclusao\n")
+            if (instituicao.isNotEmpty()) mensagem.append("Instituição: $instituicao\n")
+            if (tituloMonografia.isNotEmpty()) mensagem.append("Título da Monografia: $tituloMonografia\n")
+            if (orientador.isNotEmpty()) mensagem.append("Orientador: $orientador\n")
+            mensagem.append("Vagas de interesse: $vagasInteresse")
+
+            Toast.makeText(this, mensagem.toString(), Toast.LENGTH_LONG).show()
+        }
+
+
 
     }
 
